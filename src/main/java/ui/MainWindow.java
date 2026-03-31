@@ -60,6 +60,8 @@ public class MainWindow extends JFrame {
 
         JPanel checkBoxPanel = new JPanel(new GridLayout(2, 2, 10, 10));
 
+        checkBoxPanel.setBorder(BorderFactory.createEmptyBorder(0, 40, 0, 40));
+
         fireSauceCheckBox = new JCheckBox("Огненный соус (+10)");
         meatCheckBox = new JCheckBox("Двойная порция оленины (+20)");
         berriesCheckBox = new JCheckBox("Нежные ягоды (+8)");
