@@ -63,7 +63,7 @@ public class MainWindow extends JFrame {
         JPanel buttonPanel = new JPanel();
 
         orderButton = new JButton("Оформить заказ");
-        historyButton = new JButton("Показать историю");
+        historyButton = new JButton("История заказов");
 
         buttonPanel.add(orderButton);
         buttonPanel.add(historyButton);
@@ -76,7 +76,6 @@ public class MainWindow extends JFrame {
         addButtonListeners();
     }
 
-    // --- ЛОГИКА ЧЕКБОКСОВ (без if) ---
     private void addCheckBoxListeners() {
         List<JCheckBox> boxes = List.of(
                 fireSauceCheckBox,
@@ -140,6 +139,15 @@ public class MainWindow extends JFrame {
 
         // История заказов
         historyButton.addActionListener(e -> {
+            String filePath = orderService.getHistoryFilePath();
+
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Ваша история заказов также хранится в:\n" + filePath,
+                    "Путь к файлу истории",
+                    JOptionPane.INFORMATION_MESSAGE
+            );
+
             String history = orderService.getHistory();
             outputArea.setText(history);
         });
